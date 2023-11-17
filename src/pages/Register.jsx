@@ -53,6 +53,9 @@ function Register() {
         })
         .catch((err) => {
           console.log(err);
+          if (err.response.status === 400) {
+            alert('이미 가입한 회원입니다');
+          }
         });
       console.log('test after api');
       navigate('/login');
