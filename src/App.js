@@ -4,9 +4,8 @@ import Register from './pages/Register';
 import Header from './components/Header';
 import Card from './components/Card';
 import Home from './Home';
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import MemberInfo from './pages/MemberInfo';
 import React from 'react';
 
 function App() {
@@ -17,13 +16,11 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route
-            path='/'
-            element={<Card title={cardTitle} content={cardContent} />}
-          />
+          <Route path='/' element={<Card />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/memberinfo' element={<MemberInfo />} />
         </Routes>
       </Router>
     </div>
