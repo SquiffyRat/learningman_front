@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import axios, { AxiosError } from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -49,11 +49,16 @@ function Register() {
           memberPassword: memberPassword,
         })
         .then((res) => {
-          console.log(res);
+          console.log(res.data);
         })
         .catch((err) => {
           console.log(err);
+          console.log(err.response.status);
+          if (err.response.status === 400) {
+            alert('중복된 이메일입니다.');
+          }
         });
+      console.log('test after api');
       navigate('/login');
     }
   };
